@@ -30,7 +30,7 @@ class Hal_guru extends CI_Controller
         $data['hari'] = $hari;
         $data['user'] = $this->session->userdata();
         $data['title'] = 'Halaman Guru';
-        $this->load->view('templates/guru_header', $data);
+        $this->load->view('templates/header', $data);
         $this->load->view('halaman_guru/index');
         $this->load->view('templates/auth_footer');
     }

@@ -16,7 +16,7 @@ class Jam extends CI_Controller
         $data['user'] = $this->session->userdata();
         $data['title'] = 'Halaman Master Jam Pelajaran';
         $data['jam'] = $this->jam_model->getAllJam();
-        $this->load->view('templates/admin_header', $data);
+        $this->load->view('templates/header', $data);
         $this->load->view('jam/index');
         $this->load->view('templates/admin_footer');
     }
@@ -37,7 +37,7 @@ class Jam extends CI_Controller
         $this->form_validation->set_rules('jam_awal', 'Jam Awal', 'required');
         $this->form_validation->set_rules('jam_akhir', 'Jam Akhir', 'required');
         if ($this->form_validation->run() == FALSE) {
-            $this->load->view('templates/admin_header', $data);
+            $this->load->view('templates/header', $data);
             $this->load->view('jam/tambah');
             $this->load->view('templates/admin_footer');
         } else {
@@ -45,7 +45,7 @@ class Jam extends CI_Controller
             if ($query) {
                 $data['status'] = $query;
                 $data['pesan'] = 'Jam pelajaran tersebut sudah terdaftar!';
-                $this->load->view('templates/admin_header', $data);
+                $this->load->view('templates/header', $data);
                 $this->load->view('jam/tambah');
                 $this->load->view('templates/admin_footer');
             } else {
@@ -66,14 +66,14 @@ class Jam extends CI_Controller
         // $this->form_validation->set_rules('jam_akhir', 'Jam Akhir', 'required');
 
         if ($this->form_validation->run() == FALSE) {
-            $this->load->view('templates/admin_header', $data);
+            $this->load->view('templates/header', $data);
             $this->load->view('jam/ubah');
             $this->load->view('templates/admin_footer');
         } else {
             if ($this->jam_model->ubahDatajam($kd_jam)) {
                 $data['status'] = TRUE;
                 $data['pesan'] = 'Jam pelajaran tersebut sudah terdaftar!';
-                $this->load->view('templates/admin_header', $data);
+                $this->load->view('templates/header', $data);
                 $this->load->view('jam/ubah');
                 $this->load->view('templates/admin_footer');
             } else {

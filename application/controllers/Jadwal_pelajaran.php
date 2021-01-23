@@ -5,7 +5,7 @@ class Jadwal_pelajaran extends CI_Controller
 {
     public function __construct()
     {
-        require_once APPPATH.'third_party/dompdf/dompdf_config.inc.php';
+        require_once APPPATH . 'third_party/dompdf/dompdf_config.inc.php';
         parent::__construct();
         $this->load->model('Jadwal_model');
         $this->load->model('Kelas_model');
@@ -33,7 +33,7 @@ class Jadwal_pelajaran extends CI_Controller
         $this->form_validation->set_rules('mapel', 'mapel', 'required');
         $this->form_validation->set_rules('guru', 'guru', 'required');
         if ($this->form_validation->run() == FALSE) {
-            $this->load->view('templates/admin_header', $data);
+            $this->load->view('templates/header', $data);
             $this->load->view('jadwal_pelajaran/index');
             $this->load->view('templates/admin_footer');
         } else {
@@ -41,14 +41,13 @@ class Jadwal_pelajaran extends CI_Controller
             $this->session->set_flashdata('flash', 'Ditambahkan');
             redirect('Jadwal_pelajaran');
         }
-        
     }
 
     public function mapel_filter()
     {
         $kd_guru = $this->input->post('kd_guru');
-        if($this->input->post('kd_guru')) {
-            echo $this->Jadwal_model->mapel_filter($kd_guru); 
+        if ($this->input->post('kd_guru')) {
+            echo $this->Jadwal_model->mapel_filter($kd_guru);
         }
     }
 }

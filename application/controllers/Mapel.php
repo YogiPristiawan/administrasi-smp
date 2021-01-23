@@ -17,7 +17,7 @@ class Mapel extends CI_Controller
         $data['title'] = 'Halaman Master Mapel';
         $data['user'] = $this->session->userdata();
         $data['mapel'] = $this->mapel_model->getMapel();
-        $this->load->view('templates/admin_header', $data);
+        $this->load->view('templates/header', $data);
         $this->load->view('mapel/index');
         $this->load->view('templates/admin_footer');
     }
@@ -36,7 +36,7 @@ class Mapel extends CI_Controller
 
         $this->form_validation->set_rules('nm_mapel', 'Nama mapel', 'required');
         if ($this->form_validation->run() == FALSE) {
-            $this->load->view('templates/admin_header', $data);
+            $this->load->view('templates/header', $data);
             $this->load->view('mapel/tambah');
             $this->load->view('templates/admin_footer');
         } else {
@@ -44,7 +44,7 @@ class Mapel extends CI_Controller
                 $data['status'] = TRUE;
                 $data['pesan'] = 'Mata Pelajaran sudah terdaftar!';
 
-                $this->load->view('templates/admin_header', $data);
+                $this->load->view('templates/header', $data);
                 $this->load->view('mapel/tambah');
                 $this->load->view('templates/admin_footer');
             } else {
@@ -63,7 +63,7 @@ class Mapel extends CI_Controller
         $this->form_validation->set_rules('nm_mapel', 'Nama Mapel', 'required');
 
         if ($this->form_validation->run() == FALSE) {
-            $this->load->view('templates/admin_header', $data);
+            $this->load->view('templates/header', $data);
             $this->load->view('mapel/ubah', $data);
             $this->load->view('templates/admin_footer');
         } else {

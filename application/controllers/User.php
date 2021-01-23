@@ -7,7 +7,7 @@ class User extends CI_Controller
     {
         $data['user'] = $this->db->get_where('tb_user', ['username' => $this->session->userdata('username')])->row_array();
         $data['title'] = 'My Profile';
-        $this->load->view('templates/admin_header', $data);
+        $this->load->view('templates/header', $data);
         $this->load->view('user/index');
         $this->load->view('templates/auth_footer');
     }

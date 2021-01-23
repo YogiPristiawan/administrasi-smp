@@ -16,7 +16,7 @@ class Siswa extends CI_Controller
         $data['user'] = $this->session->userdata();
         $data['title'] = 'Halaman Master Siswa';
         $data['siswa'] = $this->siswa_model->getSiswa();
-        $this->load->view('templates/admin_header', $data);
+        $this->load->view('templates/header', $data);
         $this->load->view('siswa/index');
         $this->load->view('templates/admin_footer');
     }
@@ -26,7 +26,7 @@ class Siswa extends CI_Controller
         $data['user'] = $this->session->userdata();
         $data['title'] = 'Detail Data siswa';
         $data['siswa'] = $this->siswa_model->getSiswaById($id);
-        $this->load->view('templates/admin_header', $data);
+        $this->load->view('templates/header', $data);
         $this->load->view('siswa/detail', $data);
         $this->load->view('templates/admin_footer');
     }
@@ -46,7 +46,7 @@ class Siswa extends CI_Controller
         $this->form_validation->set_rules('email', 'Email', 'required');
         $this->form_validation->set_rules('th_ajaran', 'Tahun Ajaran', 'required');
         if ($this->form_validation->run() == FALSE) {
-            $this->load->view('templates/admin_header', $data);
+            $this->load->view('templates/header', $data);
             $this->load->view('siswa/tambah');
             $this->load->view('templates/admin_footer');
         } else {
@@ -75,7 +75,7 @@ class Siswa extends CI_Controller
 
 
         if ($this->form_validation->run() == FALSE) {
-            $this->load->view('templates/admin_header', $data);
+            $this->load->view('templates/header', $data);
             $this->load->view('siswa/ubah', $data);
             $this->load->view('templates/admin_footer');
         } else {

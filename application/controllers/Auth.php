@@ -45,11 +45,12 @@ class Auth extends CI_Controller
 
                 $this->session->set_userdata($data);
 
-                if ($user['id_akses'] == "1") {
-                    redirect('admin');
-                } else if ($user['id_akses'] == "2") {
-                    redirect('hal_guru');
-                }
+                // if ($user['id_akses'] == "1") {
+                //     redirect('admin');
+                // } else if ($user['id_akses'] == "2") {
+                //     redirect('hal_guru');
+                // }
+                redirect('home');
             } else {
                 $this->session->set_flashdata('message', '<div class="sufee-alert alert with-close alert-danger alert-dismissible fade show">
                 Password yang anda masukan salah!

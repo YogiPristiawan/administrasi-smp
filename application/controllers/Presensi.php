@@ -13,9 +13,8 @@ class Presensi extends CI_Controller
         $data['user'] = $this->db->get_where('tb_user', ['username' => $this->session->userdata('username')])->row_array();
         $data['title'] = 'Laporan Presensi';
         $data['presensi'] = $this->presensi_model->getAllPresensi();
-        $this->load->view('templates/admin_header', $data);
+        $this->load->view('templates/header', $data);
         $this->load->view('Presensi/index');
         $this->load->view('templates/admin_footer');
     }
-
 }

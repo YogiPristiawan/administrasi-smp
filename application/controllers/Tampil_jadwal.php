@@ -19,9 +19,8 @@ class Tampil_jadwal extends CI_Controller
         $data['kelas'] = $this->kelas_model->getAllkelas();
         $data['mapel'] = $this->mapel_model->getAllmapel();
         $data['guru'] = $this->guru_model->getGuru();
-        $this->load->view('templates/admin_header', $data);
+        $this->load->view('templates/header', $data);
         $this->load->view('jadwal_pelajaran/tampil');
         $this->load->view('templates/admin_footer');
     }
-
 }

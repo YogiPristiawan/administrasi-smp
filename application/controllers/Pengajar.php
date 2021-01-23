@@ -19,7 +19,7 @@ class Pengajar extends CI_Controller
         $data['user'] = $this->session->userdata();
         $data['pengajar'] = $this->pengajar_model->getPengajar();
 
-        $this->load->view('templates/admin_header', $data);
+        $this->load->view('templates/header', $data);
         $this->load->view('pengajar/index');
         $this->load->view('templates/admin_footer');
     }
@@ -36,7 +36,7 @@ class Pengajar extends CI_Controller
         $this->form_validation->set_rules('nip', 'Guru Pengajar', 'required');
 
         if ($this->form_validation->run() === FALSE) {
-            $this->load->view('templates/admin_header', $data);
+            $this->load->view('templates/header', $data);
             $this->load->view('pengajar/ubah');
             $this->load->view('templates/admin_footer');
         } else {
@@ -64,14 +64,14 @@ class Pengajar extends CI_Controller
         $this->form_validation->set_rules('nip', 'Nama Guru', 'required');
 
         if ($this->form_validation->run() == FALSE) {
-            $this->load->view('templates/admin_header', $data);
+            $this->load->view('templates/header', $data);
             $this->load->view('pengajar/tambah');
             $this->load->view('templates/admin_footer');
         } else {
             if ($this->pengajar_model->tambahDataPengajar()) {   //cek duplikat
                 $data['status'] = TRUE;
                 $data['pesan'] = 'Pengajar tersebut sudah terdaftar!';
-                $this->load->view('templates/admin_header', $data);
+                $this->load->view('templates/header', $data);
                 $this->load->view('pengajar/tambah');
                 $this->load->view('templates/admin_footer');
             } else {

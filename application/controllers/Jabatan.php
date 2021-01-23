@@ -16,7 +16,7 @@ class Jabatan extends CI_Controller
         $data['user'] = $this->session->userdata();
         $data['title'] = 'Halaman Master Jabatan';
         $data['jabatan'] = $this->jabatan_model->getAllJabatan();
-        $this->load->view('templates/admin_header', $data);
+        $this->load->view('templates/header', $data);
         $this->load->view('jabatan/index');
         $this->load->view('templates/admin_footer');
     }
@@ -36,7 +36,7 @@ class Jabatan extends CI_Controller
         // $this->form_validation->set_rules('kd_jab', 'Kode Jabatan', 'required');
         $this->form_validation->set_rules('nm_jab', 'Nama Jabatan', 'required');
         if ($this->form_validation->run() == FALSE) {
-            $this->load->view('templates/admin_header', $data);
+            $this->load->view('templates/header', $data);
             $this->load->view('jabatan/tambah');
             $this->load->view('templates/admin_footer');
         } else {
@@ -55,7 +55,7 @@ class Jabatan extends CI_Controller
 
 
         if ($this->form_validation->run() == FALSE) {
-            $this->load->view('templates/admin_header', $data);
+            $this->load->view('templates/header', $data);
             $this->load->view('jabatan/ubah', $data);
             $this->load->view('templates/admin_footer');
         } else {

@@ -44,7 +44,7 @@ class Absensi_siswa extends CI_Controller
         $data['mapel'] = $this->pengajar_model->getMapelByNip($this->session->userdata('nip'));
         $data['hari'] = $hari;
 
-        $this->load->view('templates/admin_header', $data);
+        $this->load->view('templates/header', $data);
         $this->load->view('absensi_siswa/index');
         $this->load->view('templates/auth_footer');
     }
@@ -134,7 +134,7 @@ class Absensi_siswa extends CI_Controller
             }
 
             if ($this->form_validation->run() == FALSE) {
-                $this->load->view('templates/admin_header', $data);
+                $this->load->view('templates/header', $data);
                 $this->load->view('absensi_siswa/proses_absensi');
                 $this->load->view('templates/auth_footer');
             } else {

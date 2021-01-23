@@ -21,7 +21,7 @@ class Kelas extends CI_Controller
             $data['kelas'][$i]['jml_siswa'] = $this->kelas_model->jumlahSiswaPerKelas($kd_kelas); //menghitung jumlah siswa
         }
 
-        $this->load->view('templates/admin_header', $data);
+        $this->load->view('templates/header', $data);
         $this->load->view('kelas/index');
         $this->load->view('templates/admin_footer');
     }
@@ -41,7 +41,7 @@ class Kelas extends CI_Controller
         $this->form_validation->set_rules('nm_kelas', 'Nama kelas', 'required');
 
         if ($this->form_validation->run() == FALSE) {
-            $this->load->view('templates/admin_header', $data);
+            $this->load->view('templates/header', $data);
             $this->load->view('kelas/tambah');
             $this->load->view('templates/admin_footer');
         } else {
@@ -62,7 +62,7 @@ class Kelas extends CI_Controller
         $this->form_validation->set_rules('jml_siswa', 'Jumlah Siswa', 'required');
 
         if ($this->form_validation->run() == FALSE) {
-            $this->load->view('templates/admin_header', $data);
+            $this->load->view('templates/header', $data);
             $this->load->view('kelas/ubah', $data);
             $this->load->view('templates/admin_footer');
         } else {

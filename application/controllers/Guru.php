@@ -18,7 +18,7 @@ class Guru extends CI_Controller
         $data['user'] = $this->session->userdata();
         $data['title'] = 'Halaman Master Guru';
         $data['guru'] = $this->guru_model->getGuru();
-        $this->load->view('templates/admin_header', $data);
+        $this->load->view('templates/header', $data);
         $this->load->view('guru/index');
         $this->load->view('templates/admin_footer');
     }
@@ -28,7 +28,7 @@ class Guru extends CI_Controller
         $data['user'] = $this->session->userdata();
         $data['title'] = 'Detail Data guru';
         $data['guru'] = $this->guru_model->getGuruById($id);
-        $this->load->view('templates/admin_header', $data);
+        $this->load->view('templates/header', $data);
         $this->load->view('guru/detail', $data);
         $this->load->view('templates/admin_footer');
     }
@@ -47,7 +47,7 @@ class Guru extends CI_Controller
         $this->form_validation->set_rules('nohp', 'No HP', 'required|is_numeric');
         $this->form_validation->set_rules('email', 'Email', 'required');
         if ($this->form_validation->run() == FALSE) {
-            $this->load->view('templates/admin_header', $data);
+            $this->load->view('templates/header', $data);
             $this->load->view('guru/tambah');
             $this->load->view('templates/admin_footer');
         } else {
@@ -73,7 +73,7 @@ class Guru extends CI_Controller
         $this->form_validation->set_rules('nohp', 'No HP', 'required|is_numeric');
         $this->form_validation->set_rules('email', 'Email', 'required');
         if ($this->form_validation->run() == FALSE) {
-            $this->load->view('templates/admin_header', $data);
+            $this->load->view('templates/header', $data);
             $this->load->view('guru/ubah', $data);
             $this->load->view('templates/admin_footer');
         } else {
