@@ -6,6 +6,7 @@ class Guru extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        is_not_login();
         require_once APPPATH . 'third_party/dompdf/dompdf_config.inc.php';
         $this->load->model('guru_model');
         $this->load->model('jabatan_model');

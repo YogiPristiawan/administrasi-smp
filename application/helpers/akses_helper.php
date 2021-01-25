@@ -1,9 +1,16 @@
 <?php
-function is_login()
+function is_not_login()                 //jika user belum login redierect ke auth page
 {
     $ci = get_instance();
     if (!$ci->session->userdata('username')) {
         redirect('auth');
+    }
+}
+function is_login()                     //jika user sudah login redirect ke home page
+{
+    $ci = get_instance();
+    if ($ci->session->userdata('username')) {
+        redirect('home');
     }
 }
 

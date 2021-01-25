@@ -6,6 +6,7 @@ class Jurnal_mengajar extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        is_not_login();
         $this->load->model('jurnal_model');
     }
     public function index()

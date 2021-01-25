@@ -11,6 +11,7 @@ class Auth extends CI_Controller
 
     public function index()
     {
+        is_login();                     //jika user sudah login redirect ke hoem page
         $this->form_validation->set_rules('username', 'Username', 'trim|required');
         $this->form_validation->set_rules('password', 'Password', 'trim|required');
 

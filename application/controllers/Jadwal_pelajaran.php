@@ -7,6 +7,7 @@ class Jadwal_pelajaran extends CI_Controller
     {
         require_once APPPATH . 'third_party/dompdf/dompdf_config.inc.php';
         parent::__construct();
+        is_not_login();
         $this->load->model('Jadwal_model');
         $this->load->model('Kelas_model');
         $this->load->model('Mapel_model');
@@ -18,7 +19,7 @@ class Jadwal_pelajaran extends CI_Controller
     public function index()
     {
         $data['title'] = 'Form Tambah Data jadwal';
-        $data['user'] = $this->db->get_where('tb_user', ['username' => $this->session->userdata('username')])->row_array();
+        $data['user'] = $this->session->userdata();
         $data['jadwal'] = $this->Jadwal_model->getAllJadwal();
         $data['kelas'] = $this->Kelas_model->getAllKelas();
         $data['mapel'] = $this->Mapel_model->getMapel();

@@ -11,7 +11,7 @@ class Kelas_model extends CI_model
         return $this->db->get()->result_array();
     }
 
-    public function getkelasByKd_kelas($kd_kelas)
+    public function getKelasByKd_kelas($kd_kelas)
     {
         return $this->db->get_where('m_kelas', ['kd_kelas' => $kd_kelas, 'deleted_at' => NULL])->row_array();
     }

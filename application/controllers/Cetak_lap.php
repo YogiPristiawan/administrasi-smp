@@ -5,6 +5,7 @@ class Cetak_lap extends CI_Controller
 {
     public function index()
     {
+        is_not_login();
         $data['user'] = $this->db->get_where('tb_user', ['username' => $this->session->userdata('username')])->row_array();
         $data['title'] = 'Halaman Cetak Data';
         $this->load->view('templates/header', $data);

@@ -6,6 +6,7 @@ class Tampil_jadwal extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        is_not_login();
         $this->load->model('jadwal_model');
         $this->load->model('kelas_model');
         $this->load->model('mapel_model');

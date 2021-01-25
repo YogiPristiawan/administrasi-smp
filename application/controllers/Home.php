@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Hal_guru extends CI_Controller
+class Home extends CI_Controller
 {
     public function __construct()
     {
@@ -32,11 +32,14 @@ class Hal_guru extends CI_Controller
                 $hari = 'Sabtu';
                 break;
         }
-        $data['hari'] = $hari;
+        $this->load->model('Admin_model');
         $data['user'] = $this->session->userdata();
-        $data['title'] = 'Halaman Guru';
+        $data['title'] = 'Halaman ' . $this->session->userdata('keterangan');
+        $data['total_guru'] = $this->Admin_model->hitungJumlahGuru();
+        $data['hari'] = $hari;
+        $data['total_siswa'] = $this->Admin_model->hitungJumlahSiswa();
         $this->load->view('templates/header', $data);
-        $this->load->view('halaman_guru/index');
+        $this->load->view('home/index');
         $this->load->view('templates/auth_footer');
     }
 }

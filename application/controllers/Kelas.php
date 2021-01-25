@@ -7,6 +7,7 @@ class Kelas extends CI_Controller
     {
         require_once APPPATH . 'third_party/dompdf/dompdf_config.inc.php';
         parent::__construct();
+        is_not_login();
         $this->load->model('kelas_model');
         $this->load->library('form_validation');
     }

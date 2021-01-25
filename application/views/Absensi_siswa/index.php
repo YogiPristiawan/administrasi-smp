@@ -47,7 +47,7 @@
                     <label for="kelas" class="form-control-label">Kelas</label>
                 </div>
                 <div class="col-md-3">
-                    <select class="form-control" name="kelas" id="kelas">
+                    <select class="form-control" name="kd_kelas">
                         <option value="" label="Pilih Kelas">Pilih Kelas</option>
                         <?php foreach ($kelas as $k) : ?>
                             <option value="<?= $k['kd_kelas'] ?>">
@@ -97,10 +97,10 @@
                     <label for="mapel" class="form-control-label">Mata Pelajaran</label>
                 </div>
                 <div class="col-md-3">
-                    <select class="form-control" name="mapel" id="mapel">
+                    <select class="form-control" name="kd_mapel">
                         <option value="" label="Pilih Mata Pelajaran">Pilih Mata Pelajaran</option>
                         <?php foreach ($mapel as $m) : ?>
-                            <option value="<?= $m['nm_mapel'] ?>">
+                            <option value="<?= $m['kd_mapel'] ?>">
                                 <?= $m['nm_mapel'] ?>
                             </option>
                         <?php endforeach ?>

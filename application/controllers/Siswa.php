@@ -6,6 +6,7 @@ class Siswa extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        is_not_login();
         $this->load->model('siswa_model');
         $this->load->model('kelas_model');
         $this->load->library('form_validation');

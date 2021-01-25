@@ -15,30 +15,39 @@ class Absensi_model extends CI_model
 
     public function tambahDataAbsensi()
     {
-        $data_jurnal = [
-            "kelas" => $this->input->post('kelas', true),
-            "kd_jurnal" => $this->input->post('kd_jurnal', true),
-            "tg_jurnal" => date('Y-m-d', strtotime($this->input->post('tg_jurnal', true))),
-            "jam_ke" => $this->input->post('jam_ke', true),
-            "materi" => $this->input->post('materi', true),
-            "mapel" => $this->input->post('mapel', true),
-            "guru" => $this->input->post('guru', true),
-            "catatan" => $this->input->post('catatan', true),
-        ];
-        $this->db->insert('m_jurnal_mengajar', $data_jurnal);
-
         $jumlah_siswa = $this->input->post('jumlah_siswa');
-        for ($i = 1; $i <= $jumlah_siswa; $i++) {
-            $data_presensi = [
-                "id_presensi" => "",
-                "kelas" => $this->input->post('kelas', true),
-                "nis" => $this->input->post('nis' . $i),
-                "tg_presensi" => date('Y-m-d', strtotime($this->input->post('tg_jurnal', true))),
-                "nm_siswa" => $this->input->post('nm_siswa' . $i),
-                "kehadiran" => $this->input->post('kehadiran' . $i),
-            ];
 
-            $this->db->insert('m_presensi', $data_presensi);
+        $hadir = [];
+        $sakit = [];
+        $izin = [];
+        $terlambat = [];
+        for ($i = 1; $i <= $jumlah_siswa; $i++) {
+            $nis = $this->input->post('nis' . $i);
+            switch ($this->input->post('absen' . $i)) {
+                case 'h':
+                    $hadir[] = $nis;
+                    break;
+                case 's':
+                    $sakit[] = $nis;
+                    break;
+                case 'i':
+                    $izin[] = $nis;
+                case 't':
+                    $terlambat[] = $nis;
+                    break;
+            }
         }
+
+        $this->db->insert('m_presensi', [
+            'tg_presensi' => date('Y-m-d'),
+            'kd_kelas' => $this->input->post('kd_kelas'),
+            'th_ajaran' => $this->input->post('th_ajaran'),
+            'semester' => $this->input->post('semester'),
+            'hadir' => json_encode($hadir),
+            'sakit' => json_encode($sakit),
+            'izin' => json_encode($izin),
+            'terlambat' => json_encode($terlambat)
+
+        ]);
     }
 }

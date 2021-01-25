@@ -7,6 +7,7 @@ class Mapel extends CI_Controller
     {
         require_once APPPATH . 'third_party/dompdf/dompdf_config.inc.php';
         parent::__construct();
+        is_not_login();
         $this->load->model('mapel_model');
         $this->load->model('guru_model');
         $this->load->library('form_validation');
