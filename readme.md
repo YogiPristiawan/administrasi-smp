@@ -19,3 +19,6 @@
 	<li>Melakukan absensi siswa</li>
 	<li>Melakukan input data jurnal</li>
 </ul>
+
+<br><br>
+<h4>*Website masih dalam proses pengembangan</h4>
