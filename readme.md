@@ -1,4 +1,10 @@
 <h1>Website untuk administrasi sekolah</h1>
+<br>
+<h3>Konfigurasi : </h3>
+<ol>
+	<li>Buat databases bernama <code>db_smp</code></li>
+	<li>Import databases yang ada di folder databases</li>
+</ol>
 
 <h3>Akses admin : </h3>
 <ul>
